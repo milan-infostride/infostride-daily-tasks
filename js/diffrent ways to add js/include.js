@@ -1,0 +1,1 @@
+alert("including js using src in script tag");
