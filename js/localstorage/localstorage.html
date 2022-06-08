@@ -1,0 +1,9 @@
+<script>
+    localStorage.setItem('name',"milan");
+    let obj = {
+        name: "milan"
+    }
+    localStorage.setItem('obj',JSON.stringify(obj));
+    console.log("geting string value from localstorage with key name = ",localStorage.getItem('name'));
+    console.log("geting obj value from localstorage with key obj = ",JSON.parse(localStorage.getItem('obj')));
+</script>
