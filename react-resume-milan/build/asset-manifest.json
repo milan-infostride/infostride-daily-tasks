@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-resume-milan/static/css/main.b6b2f5a6.css",
+    "main.js": "/react-resume-milan/static/js/main.854c3801.js",
+    "static/js/787.f3d7924f.chunk.js": "/react-resume-milan/static/js/787.f3d7924f.chunk.js",
+    "index.html": "/react-resume-milan/index.html",
+    "main.b6b2f5a6.css.map": "/react-resume-milan/static/css/main.b6b2f5a6.css.map",
+    "main.854c3801.js.map": "/react-resume-milan/static/js/main.854c3801.js.map",
+    "787.f3d7924f.chunk.js.map": "/react-resume-milan/static/js/787.f3d7924f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6b2f5a6.css",
+    "static/js/main.854c3801.js"
+  ]
+}
