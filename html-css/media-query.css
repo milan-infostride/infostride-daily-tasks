@@ -1,0 +1,20 @@
+.my-col{
+    width: 98%;
+    margin: 1%;
+    height: 450px;
+    background-color: brown;
+    display: inline-block;
+}
+
+@media only screen and (min-device-width:468px){
+    .my-col{
+        width: 45%;
+    
+    }
+}
+@media only screen and (min-device-width: 801px){
+    .my-col{
+        width: 30%;
+        
+    }
+}
