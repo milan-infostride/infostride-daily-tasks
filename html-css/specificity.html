@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Specificity</title>
+
+  </head>
+  <style>
+      #my-div{
+          background-color: green;
+          width: 80%;
+          margin: 0 auto;
+
+      }
+      .div-class{
+          background-color: yellow;
+      }
+  </style>
+  <body>
+    <div style="text-align: center;">
+    <div id="my-div" class="div-class">Div with id #my-div setting bg col to green and class .div-class 
+        setting bg col to yellow but #my-div winnig due to Specificity </div>
+    </div>
+  </body>
+  </html>
