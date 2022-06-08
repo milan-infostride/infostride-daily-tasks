@@ -1,0 +1,9 @@
+    <script>
+    sessionStorage.setItem('name',"milan");
+    let obj = {
+        name: "milan"
+    }
+    sessionStorage.setItem('obj',JSON.stringify(obj));
+    console.log("geting string value from sessionStorage with key name = ",sessionStorage.getItem('name'));
+    console.log("geting obj value from sessionStorage with key obj = ",JSON.parse(sessionStorage.getItem('obj')));
+    </script>
