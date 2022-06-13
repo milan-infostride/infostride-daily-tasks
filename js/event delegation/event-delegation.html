@@ -1,0 +1,25 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        const customUI = document.createElement('ul');
+
+        function get_line_clicked(evt) {
+            //console.log(evt)
+            if (evt.target.nodeName == 'LI'){
+                //console.log(evt);
+                console.log(evt.target.innerText);
+            }
+        }
+
+        for (var i = 1; i <= 10; i++) {
+            const newElement = document.createElement('li');
+            newElement.textContent = "This is line " + i;
+            customUI.appendChild(newElement);
+        }
+        document.body.appendChild(customUI);
+        customUI.addEventListener('click', get_line_clicked);
+        
+    </script>
+</html>
