@@ -1,0 +1,23 @@
+<script>
+    let obj = {a:1,b:2};
+    let obj_json = JSON.stringify(obj);
+    
+    let success_callback = (val)=>{
+        return JSON.parse(val);
+    }
+    
+
+    let myPromise = new Promise((success_callback,reject_callback)=>{
+        if(typeof obj_json !=='undefined'){
+            success_callback(obj_json);
+        }
+        else{
+            reject_callback("Data not sent");
+        }
+    })
+    myPromise.then(res=>{
+        console.log(res);
+    }).catch(res=>{
+        console.log(res);
+    })
+</script>
