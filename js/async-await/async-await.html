@@ -20,13 +20,14 @@ async function get_data(){
     })
     await myPromise.then(res=>{
         console.log(res);
-        //local_obj = res;
+        local_obj = res;
     }).catch(res=>{
         console.log(res);
     })
     
 }
 get_data();
+console.log(local_obj);
 //local_obj.a;
 
 
