@@ -1,27 +1,24 @@
 <script>
-    const mem = (func)=>{
-        let results = {};
-        return (...args)=>{
-            const argkey = JSON.stringify(args);
-            if(!results.hasOwnProperty(argkey)){
-                results[argkey] = func(...args);
-            }
-            else{
-                return results[argkey];
-            }
-        }
-    }
+   function fact(n){
+        if(n==0)
+            return 1;
+        return n * fact(n-1)
 
-    let fact  = mem((val)=>{
-        // if(val==0)
-        //     return 1;
-        // else
-        //     return val*fact(val-1);
-        let pro = 1;
-        for(let i=1;i<=val;i++){
-            pro*=i;
+   }
+
+   const mem = function(callback){
+        const results = {};
+
+        return (...args)=>{
+            let args_key = args.toString();
+            if(!results[args_key]){
+                return callback(...args);
+            }
+            return results[args_key];
         }
-        return pro;h
-    })
-    console.log(fact(5));
+
+   }
+   const better_fact = mem(fact);
+
+   console.log(better_fact(5));
 </script>

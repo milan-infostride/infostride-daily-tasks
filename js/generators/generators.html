@@ -1,0 +1,12 @@
+<script>
+    function* mygenerator(){
+        let i = 0;
+        while(true){
+            yield i++;
+        }
+    }
+    let next_num = mygenerator();
+    console.log(next_num.next().value);
+    console.log(next_num.next().value);
+    console.log(next_num.next().value);
+</script>

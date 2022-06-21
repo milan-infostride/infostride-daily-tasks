@@ -1,0 +1,31 @@
+<script>
+    function myIterator(arr){
+        let start = 0;
+        return{
+            next(){
+                if(start<arr.length){
+                    return {
+                        value: arr[start++],
+                        done: false
+                    }
+                }
+                else{
+                    return {
+                        done: true
+                    }
+                }
+            }
+        }
+    }
+    let arr = [1,2,3,4];
+    let it = myIterator(arr)
+    while(true){
+        let current_obj = it.next();
+        if(!current_obj.done){
+            console.log(current_obj.value);
+        }
+        else{
+            break;
+        }
+    }
+</script>
