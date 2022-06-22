@@ -1,0 +1,34 @@
+<script>
+    function chk_anagram(str1,str2){
+        if(str1.length!=str2.length)
+            return false;
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        let obj_str1 = {};
+        let obj_str2 = {};
+        for(let char of str1){
+            if(!obj_str1[char]){
+                obj_str1[char] = 1;
+            }
+            else{
+                obj_str1[char]++
+            }
+        }
+        for(let char of str2){
+            if(!obj_str2[char]){
+                obj_str2[char] = 1;
+            }
+            else{
+                obj_str2[char]++
+            }
+        }
+        //console.log(obj_str1);
+        //console.log(obj_str2);
+        for(let prop in obj_str1){
+            if(obj_str1[prop]!=obj_str2[prop])
+                return false;
+        }
+        //o(n)
+        return true;
+    }
+</script>
