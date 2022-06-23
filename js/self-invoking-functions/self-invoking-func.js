@@ -1,5 +1,5 @@
-<script>
-    var foo = 4;
+{/* <script> */}
+    // var foo = 4;
     (function(){
         var foo = 3;
         console.log(foo);
@@ -12,4 +12,4 @@
     // }
     // alter_foo();
     // console.log(foo);
-</script>
+// </script>

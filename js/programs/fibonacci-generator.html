@@ -1,0 +1,21 @@
+<script>
+let getfibo = function (){
+    let first=0;
+    let second = 1;
+    //let newValue = null;
+    return function* (){
+        yield first;
+        yield second;
+        while(true){
+            let newValue = first + second;
+            [first,second] = [second,newValue];
+            yield newValue
+        }
+
+    }
+    
+}
+let myIterator = (getfibo())();
+
+console.log(myIterator);
+</script>
