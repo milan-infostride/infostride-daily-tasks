@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "email": "milansingh@davgmail.com",
+      "name": "mmm",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 1
+    },
+    {
+      "email": "milansinghdav@gmail.com",
+      "name": "milan",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 2
+    },
+    {
+      "email": "milansingh7696@gmail.com",
+      "name": "milan",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 3
+    },
+    {
+      "email": "milandeep.bhalla@infostride.com",
+      "name": "milan",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 4
+    },
+    {
+      "email": "mm@gmail.com",
+      "name": "mm",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 5
+    },
+    {
+      "email": "abcd@gmail.com",
+      "name": "abcd",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 6
+    },
+    {
+      "email": "xyz@gmail.com",
+      "name": "xyz",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 7
+    },
+    {
+      "email": "efg@gmail.com",
+      "name": "efg",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 8
+    },
+    {
+      "email": "test@gmail.com",
+      "name": "test",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 9
+    }
+  ]
+}

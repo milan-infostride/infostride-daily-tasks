@@ -29,11 +29,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="body" class="form-label">Blog Body</label>
-                        <textarea type="text" class="form-control" id="body" aria-describedby="blog title"></textarea>
+                        <textarea type="text" class="form-control" rows="10" id="body" aria-describedby="blog title"></textarea>
                     </div>
                 </form>
                 <div class="text-center">
-                    <button class="btn btn-lg btn-success">Post Blog</button>
+                    <button class="btn btn-lg btn-success" id="postBlog">Post Blog</button>
                 </div>
             </div>
 
@@ -43,7 +43,21 @@
     </div>
     
 
+    <script>
+        let postButton = document.getElementById('postBlog');
+        console.log(postButton);
+        let title = document.getElementById('blog-title');
+        let author = document.getElementById('author');
+        console.log(author);
+        let body = document.getElementById('body').value;
+        postButton.addEventListener('click',()=>{
+            console.log("click working")
+            let blogObj = {};
+            blogObj.author = author.value;
+            console.log(blogObj);
 
+        })
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 </body>
