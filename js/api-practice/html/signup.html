@@ -25,9 +25,10 @@
                     <i class="fas fa-user text-success display-2"></i>
                 </div>
                 <form class="col-lg-8 col-10 mx-auto">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="email">
+                    <div class="input-group mb-3">
+                        <!-- <label for="email" class="form-label">Email</label> -->
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="email">
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -128,7 +129,7 @@
                         console.log("result = ",res);
                         emailResult = res;
                     }).catch(err=>{
-                        alert(err.message());
+                        alert(err);
                     })
                     if(emailResult.length==0){
                         delete signupData.confirm_password;

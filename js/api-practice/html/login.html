@@ -89,6 +89,7 @@
                         let currentUser = user[0]
                         if(loginData.password==currentUser.password){
                             delete currentUser.password;
+                            // delete
                             localStorage.setItem('currentUser',JSON.stringify(currentUser));
                             // alert('logged in successfull');
                             location.replace('welcome-user.html')

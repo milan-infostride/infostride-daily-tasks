@@ -4,26 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/navbar.css">
     <title>Welcome</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
 
 </head>
 <body>
     
-    <div class="container mt-5">
-        <div class="row text-center">
-            <h1 class="diplay-4">welcome <span id="userName"></span></h1>
-        </div>
-
-    </div>
+    <nav>
+        <div class="logo">LOGO</div>
+        <ul class="collapsing-content">
+            <li class="upper-li">Hello <span id="username"></span></li>
+            <li class="my-dropdown upper-li"><a href="#" class="dropbtn nav-link">Login/Signup</a>
+            <ul class="dropdown-content">
+                <li><a href="#" class="nav-link">Login</a></li>
+                <li><a href="#" class="nav-link">Signup</a></li>
+            </ul>
+             </li>
+        </ul>
+    </nav>
     <script>
         // alert()
+        let dropContent = document.getElementsByClassName('dropdown-content');
+        let dropbtn = document.getElementsByClassName('my-dropdown');
+        dropbtn[0].addEventListener('click',(e)=>{
+            console.log(e)
+            console.log(dropContent[0]);
+            dropContent[0].classList.toggle('show');
+        })
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         console.log(currentUser);
         let userName = document.getElementById('userName');
         userName.innerText = currentUser.name;
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
 
 </body>
 </html>

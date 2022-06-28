@@ -71,6 +71,14 @@
       "password": "abcd",
       "confirm_Password": "abcd",
       "id": 9
+    },
+    {
+      "email": "testuser@gmail.com",
+      "name": "testuser",
+      "number": "6284179694",
+      "password": "abcd",
+      "confirm_Password": "abcd",
+      "id": 10
     }
   ]
 }
