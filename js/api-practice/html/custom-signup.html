@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/login-signup.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom-signup</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">LOGO</div>
+        <ul class="collapsing-content">
+            <li class="upper-li">Hello <span id="username"></span></li>
+            <li class="upper-li" id="logout" style="display: none;"><a href="#" class="nav-link">Logout</a></li>
+            <li class="my-dropdown upper-li" id="login" style="display: none;"><a href="#" class="dropbtn nav-link">Login/Signup <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-content">
+                <li><a href="custom-login.html" class="nav-link">Login</a></li>
+                <li><a href="custom-signup.html" class="nav-link">Signup</a></li>
+            </ul>
+             </li>
+        </ul>
+    </nav>
+    <section class="my-login-container">
+        <div class="my-login-col" id="login-col" style="margin-top: 5em;">
+            <div class="login-heading">
+                Signup...!!
+            </div>
+            <div class="login-form">
+                <input type="email" class="form-input" id="email" placeholder="email"><br>
+                <input type="text" class="form-input" id="name" placeholder="Full name"><br>
+                <input type="tel" class="form-input" id="number" placeholder="number"><br>
+
+                <input type="password" class="form-input" id="password" placeholder="password"><br>
+                <input type="password" class="form-input" id="confirmPassword" placeholder="confirm password">
+
+            </div>
+            <span class="login-btn" id="signupButton">Sign up</span>
+
+
+        </div>
+    </section>
+    
+</body>
+
+<script>
+    let dropContent = document.getElementsByClassName('dropdown-content');
+        let dropbtn = document.getElementsByClassName('my-dropdown');
+        dropbtn[0].addEventListener('click',(e)=>{
+            // console.log(e)
+            // console.log(dropContent[0]);
+            dropContent[0].classList.toggle('show');
+        })
+        let loggedIn = false;
+        let userName = document.getElementById('username');
+
+        let logincol = document.getElementById('login-col');
+        if(localStorage.getItem('currentUser')){
+            let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            loggedIn = true;
+            let logout = document.getElementById('logout');
+            // console.log(logout);
+            logout.style['display'] = "list-item";
+            logout.addEventListener('click',()=>{
+                localStorage.removeItem('currentUser');
+                location.reload();
+            })
+            logincol.style['display'] = 'none';
+            userName.innerText = currentUser.name;
+        }
+        else{
+        let login = document.getElementById('login');
+        login.style['display'] = "list-item";
+        userName.innerText = 'Guest';
+        let email = document.getElementById('email');
+        let name = document.getElementById('name');
+        let number = document.getElementById('number');
+        let password = document.getElementById('password');
+        let confirmPassword = document.getElementById('confirmPassword');
+        let signupButton = document.getElementById('signupButton');
+        let signupData;
+        function chkPhoneNumber(number){
+            if(isNaN(number))
+                return false;
+            if(number.length!=10){
+                return false;
+            }
+            return true;
+        }
+        function chkPassword(str1,str2){
+            return str1==str2;
+        }
+        function chkEmail(email){
+            return email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        }
+        signupButton.addEventListener('click',()=>{
+            signupData = {
+                email: email.value.toLowerCase(),
+                name: name.value,
+                number: number.value,
+                password: password.value,
+                confirm_Password: confirmPassword.value
+            }
+            // console.log('signup data = ',signupData);
+            let chk = true;
+            for(let prop in signupData){
+                if(signupData[prop].length==0){
+                    alert(prop.replaceAll('_',' ')+' is empty');
+                    chk = false;
+                    break;
+                }
+            }
+            if(!chkPhoneNumber(signupData.number)){
+                alert('phone number invalid');
+                chk = false;
+            }
+            if(!chkEmail(signupData.email)){
+                alert('email invalid');
+                chk = false;
+            }
+            if(!chkPassword(signupData.password,signupData.confirm_Password)){
+                alert('password and confirm password dosen\'t matched');
+                chk = false;
+            }
+            if(chk){
+                //code to send data to users.json
+                // resource link :- http://localhost:3000/users
+                let resource = 'http://localhost:3000/users';
+                async function signup(){
+                    let urlEmail = resource + '?email='+signupData.email;
+                    let posturl = resource;
+                    let emailResult = [];
+                    await fetch(urlEmail).then(res=>{
+                        // console.log("in response");
+                        // console.log(res);
+                        if(res.status==200)
+                            return res.json();
+                        else throw new Error("some error occurred");
+                    }).then(res=>{
+                        // console.log("result = ",res);
+                        emailResult = res;
+                    }).catch(err=>{
+                        alert(err);
+                    })
+                    if(emailResult.length==0){
+                        delete signupData.confirm_password;
+                        await fetch(posturl,{
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(signupData)}).then(res=>{
+                                // console.log(res);
+                                if(res.status==201)
+                                    return res.json();
+                                else{
+                                    throw new Error("some error occured");
+                                }
+                            }).then(res=>{
+                                // console.log(res);
+                                // let redirecturl = location.href
+                                location.replace('custom-login.html');
+                            }).catch(err=>{
+                                alert(err);
+                            });
+                    }
+                    else{
+                        alert('user already present');
+                    }
+                }
+                signup();
+            }
+            
+        })
+        }
+</script>
+</html>

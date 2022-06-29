@@ -79,6 +79,14 @@
       "password": "abcd",
       "confirm_Password": "abcd",
       "id": 10
+    },
+    {
+      "email": "merimail@meradomain.com",
+      "name": "mera naam",
+      "number": "1234567890",
+      "password": "merapassword",
+      "confirm_Password": "merapassword",
+      "id": 11
     }
   ]
 }
